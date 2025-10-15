@@ -1,2 +1,2 @@
-github_dark_default
-dis
+github_dark_tritanopia
+en

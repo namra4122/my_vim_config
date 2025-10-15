@@ -29,3 +29,14 @@ vim.opt.scrolloff = 8
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
+
+local my_augroup = vim.api.nvim_create_augroup("CustomAutocmds", { clear = true })
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  group = my_augroup,
+  pattern = { "*.md", "*.txt" },
+  callback = function()
+    vim.opt_local.wrap = true
+  end,
+  desc = "Set text wrap for .md and .txt files"
+})

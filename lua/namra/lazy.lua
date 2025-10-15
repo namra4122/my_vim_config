@@ -37,6 +37,7 @@ require("lazy").setup({
     { 'ThePrimeagen/harpoon' },
 
     { 'neovim/nvim-lspconfig' }, -- Required
+
     {                            -- Optional
       'williamboman/mason.nvim',
       run = function()
@@ -91,6 +92,8 @@ require("lazy").setup({
       config = function() require("nvim-autopairs").setup {} end
     },
 
+    { 'nvim-tree/nvim-tree.lua' },
+
     {
       'nvim-lualine/lualine.nvim',
       dependencies = { 'nvim-tree/nvim-web-devicons', opt = true }
@@ -106,36 +109,27 @@ require("lazy").setup({
     { 'wakatime/vim-wakatime', lazy = false },
     { 'wojciechkepka/vim-github-dark' },
     { 'projekt0n/github-nvim-theme' },
+    { 'scottmckendry/cyberdream.nvim', lazy = false },
+    { 'ashish2508/Eezzy.nvim' },
     {
-      "sphamba/smear-cursor.nvim",
-
-      opts = {
-        -- Smear cursor when switching buffers or windows.
-        smear_between_buffers = true,
-
-        -- Smear cursor when moving within line or to neighbor lines.
-        -- Use `min_horizontal_distance_smear` and `min_vertical_distance_smear` for finer control
-        smear_between_neighbor_lines = true,
-
-        -- Draw the smear in buffer space instead of screen space when scrolling
-        scroll_buffer_space = true,
-
-        -- Set to `true` if your font supports legacy computing symbols (block unicode symbols).
-        -- Smears will blend better on all backgrounds.
-        legacy_computing_symbols_support = false,
-
-        -- Smear cursor in insert mode.
-        -- See also `vertical_bar_cursor_insert_mode` and `distance_stop_animating_vertical_bar`.
-        smear_insert_mode = true,
-      },
-   },
+      'sainnhe/sonokai',
+      lazy = false,
+      priority = 1000,
+      config = function()
+        -- Optionally configure and load the colorscheme
+        -- directly inside the plugin declaration.
+        vim.g.sonokai_enable_italic = true
+        vim.cmd.colorscheme('sonokai')
+      end
+    },
     {
       "lukas-reineke/indent-blankline.nvim",
       main = "ibl",
       ---@module "ibl"
       ---@type ibl.config
       opts = {},
-    }
+    },
+    { "mtendekuyokwa19/stoics.nvim" }
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
