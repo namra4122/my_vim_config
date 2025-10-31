@@ -92,8 +92,6 @@ require("lazy").setup({
       config = function() require("nvim-autopairs").setup {} end
     },
 
-    { 'nvim-tree/nvim-tree.lua' },
-
     {
       'nvim-lualine/lualine.nvim',
       dependencies = { 'nvim-tree/nvim-web-devicons', opt = true }
