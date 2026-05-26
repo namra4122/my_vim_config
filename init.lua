@@ -1,7 +1,7 @@
 local g = vim.g
 
 -- leader key [space]
-g.mapleader = " "
+g.mapleader = ' '
 
 -- disabling unwanted built-in stuffs
 g.loaded_2html_plugin = 1
@@ -25,49 +25,50 @@ g.loaded_zipPlugin = 1
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-	local out = vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"--branch=stable",
-		lazyrepo,
-		lazypath,
-	})
-	if vim.v.shell_error ~= 0 then
-		vim.api.nvim_echo({
-			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-			{ out, "WarningMsg" },
-			{ "\nPress any key to exit..." },
-		}, true, {})
-		vim.fn.getchar()
-		os.exit(1)
-	end
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "--branch=stable",
+    lazyrepo,
+    lazypath
+  })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out,                            "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
 end
 
 vim.opt.rtp:prepend(lazypath)
 
+
 -- Setup lazy.nvim and configure plugins
 require("lazy").setup({
-	spec = {
-		{ import = "plugins" },
-	},
-	checker = {
-		enabled = true,
-		notify = false,
-	},
-	ui = {
-		border = "rounded",
-	},
-	-- enable or disable luarocks
-	rocks = {
-		enabled = false,
-	},
-	change_detection = { notify = false },
+  spec = {
+    { import = 'plugins' },
+  },
+  checker = {
+    enabled = true,
+    notify = false,
+  },
+  ui = {
+    border = 'rounded',
+  },
+  -- enable or disable luarocks
+  rocks = {
+    enabled = false,
+  },
+  change_detection = { notify = false },
 })
 
 -- load general settings and more
-require("settings")
-require("keymaps")
-require("autocmds")
-require("lsp")
+require('settings')
+require('keymaps')
+require('autocmds')
+require('lsp')

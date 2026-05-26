@@ -20,8 +20,6 @@ map("n", "<leader>w", function()
 	vim.api.nvim_command("write")
 	vim.notify("File saved")
 end)
--- and in insert mode
-map({ "i", "x" }, "<leader>w", "<esc>:w<cr>")
 
 -- source buffer
 map("n", "<leader>S", "<cmd>source % | lua print('buffer sourced')<cr>")

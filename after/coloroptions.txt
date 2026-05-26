@@ -1,2 +1,2 @@
-ghdark
+catppuccin-nvim
 en
