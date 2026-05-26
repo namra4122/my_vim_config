@@ -12,9 +12,11 @@ return {
 
 		set("n", "<leader>A", function()
 			harpoon:list():prepend()
+			print("File prepend to harpoon")
 		end)
 		set("n", "<leader>a", function()
 			harpoon:list():add()
+			print("File added to harpoon")
 		end)
 		set("n", "<C-e>", function()
 			harpoon.ui:toggle_quick_menu(harpoon:list())
