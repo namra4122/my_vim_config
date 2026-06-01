@@ -18,8 +18,12 @@ return {
 			harpoon:list():add()
 			print("File added to harpoon")
 		end)
-		set("n", "<C-e>", function()
+		set("n", "<leader>e", function()
 			harpoon.ui:toggle_quick_menu(harpoon:list())
+		end)
+		set("n", "<leader>cc", function()
+			harpoon:list():clear()
+			print("Harpoon buff is cleared")
 		end)
 
 		-- switch to harpooned file 1-4
